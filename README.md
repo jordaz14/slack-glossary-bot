@@ -4,7 +4,7 @@
 >
 > **OVERVIEW:**
 >
-> GlossaryBot, developed using JavaScript and Bolt, is an interactive Slackbot designed to aid workspaces with acroyn
+> GlossaryBot, developed using JavaScript, SQL, and Bolt, is an interactive Slackbot designed to aid workspaces with confusing acronyms and terminology.
 >
 > **DESCRIPTION:**
 >
