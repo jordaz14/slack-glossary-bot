@@ -25,7 +25,7 @@ const app = new App({
 
 // SLACK APPLICATION CODE
 
-// Command lb-help returns a welcoming message with a list of all available commands
+// Command gb-help returns a welcoming message with a list of all available commands
 app.command("/gb-help", async ({ command, ack, respond }) => {
   // Acknowledge command request
   await ack();
@@ -59,7 +59,7 @@ app.command("/gb-help", async ({ command, ack, respond }) => {
         type: "section",
         text: {
           type: "mrkdwn",
-          text: "• */gb-help* - lists all available commands \n • */gb-list* - lists all words in glosssary \n • */gb-define [word]* - defines word in glossary \n • */gb-add [word]* - add word to glossary \n • */gb-remove [word]* - remove word from glossary",
+          text: "• */gb-help* - lists all available commands \n • */gb-list* - lists all words in glosssary \n • */gb-define [word]* - defines word in glossary \n • */gb-add* - add word to glossary \n • */gb-remove [word]* - remove word from glossary",
         },
       },
       {
@@ -79,7 +79,7 @@ app.command("/gb-help", async ({ command, ack, respond }) => {
   });
 });
 
-// Command lb-list returns with a list of all words in glossary
+// Command gb-list returns with a list of all words in glossary
 app.command("/gb-list", async ({ command, ack, respond }) => {
   // Acknowledge command request
   await ack();
@@ -105,7 +105,7 @@ app.command("/gb-list", async ({ command, ack, respond }) => {
   await respond(`*Please see list below* :clipboard:\n${resStr}`);
 });
 
-// Command lb-define defines a word within the glossary
+// Command gb-define defines a word within the glossary
 app.command("/gb-define", async ({ command, ack, respond }) => {
   // Acknowledge command request
   await ack();
@@ -120,12 +120,12 @@ app.command("/gb-define", async ({ command, ack, respond }) => {
     await respond(`${command.text.toUpperCase()}: ${res[0].definition}`);
   } catch {
     await respond(
-      `Sorry, but '${command.text.toUpperCase()}' does not exist :crying_cat_face:. Try */lb-add* to add your word to the glossary`
+      `Sorry, but '${command.text.toUpperCase()}' does not exist :crying_cat_face:. Try */gb-add* to add your word to the glossary`
     );
   }
 });
 
-// Command lb-add prompts a modal for user to enter and define their word
+// Command gb-add prompts a modal for user to enter and define their word
 app.command("/gb-add", async ({ command, ack, client, logger, body }) => {
   // Acknowledge command request
   await ack();
@@ -223,12 +223,12 @@ app.view("view_1", async ({ ack, body, view, client, logger }) => {
     await client.chat.postEphemeral({
       channel: user,
       user: user,
-      text: `*${wordEntry.word_input.value.toUpperCase()}* already exists :shrug:. Try */lb-define* to see its definition`,
+      text: `*${wordEntry.word_input.value.toUpperCase()}* already exists :shrug:. Try */gb-define* to see its definition`,
     });
   }
 });
 
-// Command lb-remove removes a word from the glossary
+// Command gb-remove removes a word from the glossary
 app.command("/gb-remove", async ({ command, ack, respond }) => {
   // Acknowledge command request
   await ack();
