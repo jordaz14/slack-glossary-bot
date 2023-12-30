@@ -8,11 +8,31 @@ GlossaryBot, developed using JavaScript, PostgreSQL, and Bolt, is a Slack applic
 
 GlossaryBot can be accessed via 5 different slash commands: `/gb-help`, `/gb-list`, `/gb-define [word]`, `/gb-add`, `/gb-remove [word]`.
 
+<br>
+
 > `/gb-help` returns a welcoming message with a list of all available slash commands
+
+
+
+https://github.com/jordaz14/slack-glossary-bot/assets/125109952/070b1640-aed1-419e-8ec5-4c1d646ab3f0
+
+<br>
 
 > `/gb-list` returns a list of all words in the glossary (sorted alphabetically)
 
-> `/gb-define [word]` defines a word within the glossary; if the word doesn't exist, user is prompted to add their word to the glossary 
+
+https://github.com/jordaz14/slack-glossary-bot/assets/125109952/9128d1ca-ae64-4afe-a551-5c05598ea73b
+
+
+<br>
+
+> `/gb-define [word]` defines a word within the glossary; if the word doesn't exist, user is prompted to add their word to the glossary
+
+
+
+https://github.com/jordaz14/slack-glossary-bot/assets/125109952/bf3c90bd-f42d-4220-8e14-e7bbd0d60b32
+
+<br>
 
 > `/gb-add` prompts a modal for the user to enter and define their word; if the word already exists, the user is prompted to search the definition
 
