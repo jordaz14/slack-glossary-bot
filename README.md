@@ -21,7 +21,7 @@ https://github.com/jordaz14/slack-glossary-bot/assets/125109952/070b1640-aed1-41
 > `/gb-list` returns a list of all words in the glossary (sorted alphabetically)
 
 
-https://github.com/jordaz14/slack-glossary-bot/assets/125109952/9128d1ca-ae64-4afe-a551-5c05598ea73b
+https://github.com/jordaz14/slack-glossary-bot/assets/125109952/654315b5-5ddc-4c37-b062-ce5179ed2179
 
 
 <br>
