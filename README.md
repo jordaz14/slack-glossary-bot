@@ -16,4 +16,16 @@ GlossaryBot can be accessed via 5 different slash commands: `/gb-help`, `/gb-lis
 
 > `/gb-add` prompts a modal for the user to enter and define their word; if the word already exists, the user is prompted to search the definition
 
+
+ https://github.com/jordaz14/slack-glossary-bot/assets/125109952/b1f03346-af5c-4bc0-9d6e-794dae7e9d7e
+
+
+<br>
+
 > `/gb-remove [word]` removes a word from the glossary
+
+
+
+https://github.com/jordaz14/slack-glossary-bot/assets/125109952/f065cb4a-fde4-4da4-9c4c-f166b682ae56
+
+
