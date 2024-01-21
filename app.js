@@ -5,10 +5,10 @@ const pgp = require("pg-promise")();
 
 // Establishes connection to database
 const conn = {
-  host: "localhost",
+  host: "dpg-cmm7es821fec73ckor1g-a",
   port: 5432,
   database: "lookerbot",
-  user: "postgres",
+  user: "lookerbot_user",
   password: process.env.DB_CONNECT_KEY,
 };
 
