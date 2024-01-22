@@ -18,9 +18,7 @@ const db = pgp(conn);
 const app = new App({
   token: process.env.SLACK_BOT_KEY,
   signingSecret: process.env.SLACK_SECRET_KEY,
-  socketMode: true,
   appToken: process.env.SLACK_APP_KEY,
-  port: process.env.PORT || 3000,
 });
 
 // SLACK APPLICATION CODE
@@ -258,7 +256,7 @@ app.command("/gb-remove", async ({ command, ack, respond }) => {
 
 (async () => {
   // Start your app
-  await app.start();
+  await app.start(process.env.PORT || 3000);
 
   console.log("⚡️ Bolt app is running!");
 })();
