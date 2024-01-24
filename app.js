@@ -199,10 +199,12 @@ app.view("view_1", async ({ ack, body, view, client, logger }) => {
 
   // Define user id for eventual user notification
   const user = body["user"]["id"];
+  console.log(user);
 
   // Gather data from user submitted input text fields
   const wordEntry = view["state"]["values"]["input_1"];
   const defEntry = view["state"]["values"]["input_2"];
+  console.log(wordEntry, defEntry);
 
   // Query for word the user inputted
   const res = await db.query("SELECT * FROM dictionary WHERE word = $1", [
