@@ -194,6 +194,7 @@ app.command("/gb-add", async ({ command, ack, client, logger, body }) => {
   } catch (error) {
     logger.error(error);
     console.log(error);
+    console.log("test");
   }
 });
 
@@ -201,6 +202,7 @@ app.command("/gb-add", async ({ command, ack, client, logger, body }) => {
 app.view("view_1", async ({ ack, body, view, client, logger }) => {
   // Acknowledge the view_submission request
   await ack();
+  console.log("Submission request attempted");
 
   // Define user id for eventual user notification
   const user = body["user"]["id"];
