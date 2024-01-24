@@ -36,6 +36,7 @@ const app = new App({
 app.command("/gb-help", async ({ command, ack, respond }) => {
   // Acknowledge command request
   await ack();
+  console.log("/gb-help executed");
 
   // Sends block with help information back to user
   await respond({
