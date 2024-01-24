@@ -3,7 +3,6 @@ const { App } = require("@slack/bolt");
 require("dotenv").config();
 const pgp = require("pg-promise")();
 
-
 // Establishes connection to database
 const conn = {
   host: "dpg-cmm7es821fec73ckor1g-a",
@@ -22,13 +21,15 @@ const app = new App({
   appToken: process.env.SLACK_APP_KEY,
   customRoutes: [
     {
-      path: 'https://slack-glossary-bot.onrender.com/slack/events',
-      method: ['POST'],
+      path: "https://slack-glossary-bot.onrender.com/slack/events",
+      method: ["POST"],
       handler: (req, res) => {
         res.writeHead(200);
         res.end(`Things are going just fine at ${req.headers.host}!`);
       },
-}]});
+    },
+  ],
+});
 
 // SLACK APPLICATION CODE
 
@@ -36,7 +37,6 @@ const app = new App({
 app.command("/gb-help", async ({ command, ack, respond }) => {
   // Acknowledge command request
   await ack();
-  console.log("/gb-help executed");
 
   // Sends block with help information back to user
   await respond({
@@ -85,6 +85,7 @@ app.command("/gb-help", async ({ command, ack, respond }) => {
       },
     ],
   });
+  console.log("/gb-help executed");
 });
 
 // Command gb-list returns with a list of all words in glossary
@@ -111,6 +112,7 @@ app.command("/gb-list", async ({ command, ack, respond }) => {
   });
 
   await respond(`*Please see list below* :clipboard:\n${resStr}`);
+  console.log("/gb-list executed");
 });
 
 // Command gb-define defines a word within the glossary
@@ -131,6 +133,7 @@ app.command("/gb-define", async ({ command, ack, respond }) => {
       `Sorry, but '${command.text.toUpperCase()}' does not exist :crying_cat_face:. Try */gb-add* to add your word to the glossary`
     );
   }
+  console.log("/gb-define executed");
 });
 
 // Command gb-add prompts a modal for user to enter and define their word
@@ -190,6 +193,7 @@ app.command("/gb-add", async ({ command, ack, client, logger, body }) => {
     });
   } catch (error) {
     logger.error(error);
+    console.log(error);
   }
 });
 
@@ -264,6 +268,7 @@ app.command("/gb-remove", async ({ command, ack, respond }) => {
       `*${command.text.toUpperCase()}* was removed from the glossary :no_good:`
     );
   }
+  console.log("/gb-remove executed");
 });
 
 (async () => {
