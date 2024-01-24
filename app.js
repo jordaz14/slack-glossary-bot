@@ -22,7 +22,7 @@ const app = new App({
   appToken: process.env.SLACK_APP_KEY,
   customRoutes: [
     {
-      path: 'https://slack-glossary-bot.onrender.com/slack/events',
+      path: 'https://slack-glossary-bot.onrender.com',
       method: ['POST'],
       handler: (req, res) => {
         res.writeHead(200);
