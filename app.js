@@ -3,6 +3,7 @@ const { App } = require("@slack/bolt");
 require("dotenv").config();
 const pgp = require("pg-promise")();
 
+
 // Establishes connection to database
 const conn = {
   host: "dpg-cmm7es821fec73ckor1g-a",
@@ -19,7 +20,15 @@ const app = new App({
   token: process.env.SLACK_BOT_KEY,
   signingSecret: process.env.SLACK_SECRET_KEY,
   appToken: process.env.SLACK_APP_KEY,
-});
+  customRoutes: [
+    {
+      path: 'https://slack-glossary-bot.onrender.com/slack/events',
+      method: ['POST'],
+      handler: (req, res) => {
+        res.writeHead(200);
+        res.end(`Things are going just fine at ${req.headers.host}!`);
+      },
+}]});
 
 // SLACK APPLICATION CODE
 
