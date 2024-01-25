@@ -21,23 +21,7 @@ const app = new App({
   logLevel: LogLevel.DEBUG,
   customRoutes: [
     {
-      path: "https://slack-glossary-bot.onrender.com",
-      method: ["GET"],
-      handler: (req, res) => {
-        res.writeHead(200);
-        res.end(`Things are going just fine at ${req.headers.host}!`);
-      },
-    },
-    {
       path: "https://slack-glossary-bot.onrender.com/slack/events",
-      method: ["POST"],
-      handler: (req, res) => {
-        res.writeHead(200);
-        res.end(`Things are going just fine at ${req.headers.host}!`);
-      },
-    },
-    {
-      path: "https://slack-glossary-bot.onrender.com/slack/form",
       method: ["POST"],
       handler: (req, res) => {
         res.writeHead(200);
