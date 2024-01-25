@@ -1,5 +1,5 @@
 // Configurations for Bolt, Dotenv, and PG-Promise
-const { App } = require("@slack/bolt");
+const { App, LogLevel } = require("@slack/bolt");
 require("dotenv").config();
 const pgp = require("pg-promise")();
 
@@ -18,6 +18,7 @@ const db = pgp(conn);
 const app = new App({
   token: process.env.SLACK_BOT_KEY,
   signingSecret: process.env.SLACK_SECRET_KEY,
+  logLevel: LogLevel.DEBUG,
   customRoutes: [
     {
       path: "https://slack-glossary-bot.onrender.com",
@@ -39,6 +40,8 @@ const app = new App({
       path: "https://slack-glossary-bot.onrender.com/slack/form",
       method: ["POST"],
       handler: (req, res) => {
+        res.writeHead(200);
+        res.write();
         res.end();
       },
     },
