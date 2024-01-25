@@ -18,7 +18,6 @@ const db = pgp(conn);
 const app = new App({
   token: process.env.SLACK_BOT_KEY,
   signingSecret: process.env.SLACK_SECRET_KEY,
-  appToken: process.env.SLACK_APP_KEY,
   customRoutes: [
     {
       path: "https://slack-glossary-bot.onrender.com/slack/events",
@@ -26,13 +25,6 @@ const app = new App({
       handler: (req, res) => {
         res.writeHead(200);
         res.end(`Things are going just fine at ${req.headers.host}!`);
-      },
-    },
-    {
-      path: "https://slack-glossary-bot.onrender.com/slack/events/form",
-      method: ["POST"],
-      handler: (req, res) => {
-        res.writeHead(200);
       },
     },
   ],
@@ -147,6 +139,7 @@ app.command("/gb-define", async ({ command, ack, respond }) => {
 app.command("/gb-add", async ({ command, ack, client, logger, body }) => {
   // Acknowledge command request
   await ack();
+  console.log("/gb-add attempting");
 
   try {
     // Call views.open with the built-in client (i.e. protocol for prompting modal to user)
@@ -200,8 +193,6 @@ app.command("/gb-add", async ({ command, ack, client, logger, body }) => {
     });
   } catch (error) {
     logger.error(error);
-    console.log(error);
-    console.log("test");
   }
 });
 
@@ -213,12 +204,10 @@ app.view("view_1", async ({ ack, body, view, client, logger }) => {
 
   // Define user id for eventual user notification
   const user = body["user"]["id"];
-  console.log(user);
 
   // Gather data from user submitted input text fields
   const wordEntry = view["state"]["values"]["input_1"];
   const defEntry = view["state"]["values"]["input_2"];
-  console.log(wordEntry, defEntry);
 
   // Query for word the user inputted
   const res = await db.query("SELECT * FROM dictionary WHERE word = $1", [
