@@ -31,8 +31,7 @@ const app = new App({
       path: "https://slack-glossary-bot.onrender.com/slack/form",
       method: ["POST"],
       handler: (req, res) => {
-        console.log("modal post received, but try again");
-        res.writeHead(200);
+        res.send();
       },
     },
   ],
