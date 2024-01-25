@@ -39,8 +39,6 @@ const app = new App({
       path: "https://slack-glossary-bot.onrender.com/slack/form",
       method: ["POST"],
       handler: (req, res) => {
-        res.writeHead(200);
-        res.write();
         res.end();
       },
     },
