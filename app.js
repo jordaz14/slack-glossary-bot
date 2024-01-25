@@ -28,6 +28,13 @@ const app = new App({
         res.end(`Things are going just fine at ${req.headers.host}!`);
       },
     },
+    {
+      path: "https://slack-glossary-bot.onrender.com/slack/events/form",
+      method: ["POST"],
+      handler: (req, res) => {
+        res.writeHead(200);
+      },
+    },
   ],
 });
 
