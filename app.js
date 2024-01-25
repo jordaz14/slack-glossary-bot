@@ -20,6 +20,14 @@ const app = new App({
   signingSecret: process.env.SLACK_SECRET_KEY,
   customRoutes: [
     {
+      path: "https://slack-glossary-bot.onrender.com",
+      method: ["GET"],
+      handler: (req, res) => {
+        res.writeHead(200);
+        res.end(`Things are going just fine at ${req.headers.host}!`);
+      },
+    },
+    {
       path: "https://slack-glossary-bot.onrender.com/slack/events",
       method: ["POST"],
       handler: (req, res) => {
