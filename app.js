@@ -32,6 +32,7 @@ const app = new App({
       method: ["POST"],
       handler: (req, res) => {
         res.writeHead(200);
+        res.write("");
         res.end();
       },
     },
